@@ -5,8 +5,8 @@ Pod::Spec.new do |s|
   s.summary        = 'A Swift package for all iOS applications.'
   s.homepage       = 'https://github.com/YazanQ/V8-engine'
   s.license        = { type: 'MIT', file: 'LICENSE.md' }
-  s.author         = { 'V8Engine' => 'Yazan Qaisi' }
-  s.source         = { git: 'https://github.com/YazanQ/V8-engine', tag: s.version.to_s }
+  s.author         = { 'Author' => 'Yazan Qaisi' }
+  s.source         = { git: 'https://github.com/YazanQ/V8-engine.git', tag: s.version.to_s }
   s.preserve_paths = [
     'Sources/Configuration/GitHooks/install.sh',
     'Sources/Configuration/GitHooks/pre-commit.sh',
