@@ -28,8 +28,8 @@ let package = Package(
                 "Core",
                 "Swime",
                 "Alamofire",
-                "Configuration",
-                "AlamofireNetworkActivityLogger"
+                "AlamofireNetworkActivityLogger",
+                "Configuration"
             ]
         ),
         .target(
@@ -43,6 +43,13 @@ let package = Package(
             name: "Configuration",
             dependencies: [
                 "Core"
+            ],
+            exclude: [
+                "GitHooks",
+                "SwiftFormat",
+                "SwiftLint",
+                "SwiftGen",
+                "Xcode"
             ]
         ),
         .target(
