@@ -11,7 +11,8 @@ let package = Package(
         .library(name: "APIClient", targets: ["APIClient"]),
         .library(name: "Core", targets: ["Core"]),
         .library(name: "Configuration", targets: ["Configuration"]),
-        .library(name: "Store", targets: ["Store"])
+        .library(name: "Store", targets: ["Store"]),
+        .library(name: "UI", targets: ["UI"])
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.8.1")),
@@ -20,6 +21,7 @@ let package = Package(
         .package(url: "https://github.com/Flight-School/AnyCodable", from: "0.6.0"),
         .package(url: "https://github.com/sendyhalim/Swime", from: "3.0.7"),
         .package(url: "https://github.com/evgenyneu/keychain-swift.git", from: "20.0.0"),
+        .package(url: "https://github.com/hackiftekhar/IQKeyboardManager.git", from: "6.5.0")
     ],
     targets: [
         .target(
@@ -28,8 +30,7 @@ let package = Package(
                 "Core",
                 "Swime",
                 "Alamofire",
-                "AlamofireNetworkActivityLogger",
-                "Configuration"
+                "AlamofireNetworkActivityLogger"
             ]
         ),
         .target(
@@ -42,7 +43,7 @@ let package = Package(
         .target(
             name: "Configuration",
             dependencies: [
-                "Core"
+            "Core"
             ],
             exclude: [
                 "GitHooks",
@@ -50,6 +51,13 @@ let package = Package(
                 "SwiftLint",
                 "SwiftGen",
                 "Xcode"
+            ]
+        ),
+        .target(
+            name: "UI",
+            dependencies: [
+                .product(name: "IQKeyboardManagerSwift", package: "IQKeyboardManager"),
+                "Core",
             ]
         ),
         .target(
