@@ -12,6 +12,6 @@ import Core
 public extension Resolver {
     static func registerStore() {
         register { UserDefaultStore() as KeyValueStore }
-        register { UserDefaultStore() as KeyValueStore }
+        register { KeychainStore() as KeyValueStore }
     }
 }

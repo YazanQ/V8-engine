@@ -15,7 +15,7 @@ let package = Package(
         .library(name: "UI", targets: ["UI"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.8.1")),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.6.1"),
         .package(url: "https://github.com/hmlongco/Resolver.git", from: "1.1.2"),
         .package(url: "https://github.com/konkab/AlamofireNetworkActivityLogger.git", .upToNextMajor(from: "3.4.0")),
         .package(url: "https://github.com/Flight-School/AnyCodable", from: "0.6.0"),
@@ -30,7 +30,8 @@ let package = Package(
                 "Core",
                 "Swime",
                 "Alamofire",
-                "AlamofireNetworkActivityLogger"
+                "AlamofireNetworkActivityLogger",
+                "Configuration"
             ]
         ),
         .target(
