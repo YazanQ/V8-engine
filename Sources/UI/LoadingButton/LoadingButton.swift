@@ -2,7 +2,7 @@
 //  LoadingButton.swift
 //  
 //
-//  Created by Trend on 29/06/2022.
+//  Created by Yazan Qaisi on 29/06/2022.
 //
 
 import UIKit

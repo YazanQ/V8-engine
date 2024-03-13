@@ -9,4 +9,4 @@
 
 PROJECT_DIR="$(pwd)"
 
-sh $PROJECT_DIR/Pods/TrendKit/Sources/TrendConfiguration/SwiftFormat/format.sh
+sh $PROJECT_DIR/Pods/V8Engine/Sources/Configuration/SwiftFormat/format.sh

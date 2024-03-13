@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Yazan Qaisi Trend on 27/02/2024.
+//  Created by Yazan Qaisi on 27/02/2024.
 //
 
 import Foundation

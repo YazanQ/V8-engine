@@ -4,7 +4,7 @@
 {% if tables.count > 0 %}
 {% set accessModifier %}{% if param.publicAccess %}public{% else %}internal{% endif %}{% endset %}
 import Foundation
-import TrendCore
+import Core
 
 // MARK: - Strings
 

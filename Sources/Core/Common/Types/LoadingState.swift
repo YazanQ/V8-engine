@@ -2,7 +2,7 @@
 //  LoadingState.swift
 //
 //
-//  Created by Yazan Qaisi Trend on 07/03/2024.
+//  Created by Yazan Qaisi on 07/03/2024.
 //
 
 import Foundation
