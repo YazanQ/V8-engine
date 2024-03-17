@@ -21,7 +21,8 @@ let package = Package(
         .package(url: "https://github.com/Flight-School/AnyCodable", from: "0.6.0"),
         .package(url: "https://github.com/sendyhalim/Swime", from: "3.0.7"),
         .package(url: "https://github.com/evgenyneu/keychain-swift.git", from: "20.0.0"),
-        .package(url: "https://github.com/hackiftekhar/IQKeyboardManager.git", from: "6.5.0")
+        .package(url: "https://github.com/hackiftekhar/IQKeyboardManager.git", from: "6.5.0"),
+        .package(url: "https://github.com/relatedcode/ProgressHUD", from: "13.6.1")
     ],
     targets: [
         .target(
@@ -59,6 +60,7 @@ let package = Package(
             dependencies: [
                 .product(name: "IQKeyboardManagerSwift", package: "IQKeyboardManager"),
                 "Core",
+                "ProgressHUD"
             ]
         ),
         .target(
