@@ -10,8 +10,8 @@ import Resolver
 
 @propertyWrapper
 public struct UserDefault<T: Codable> {
-    struct Wrapper<T>: Codable where T: Codable {
-        let wrapped: T
+    struct Wrapper<B>: Codable where B: Codable {
+        let wrapped: B
     }
 
     @Injected
