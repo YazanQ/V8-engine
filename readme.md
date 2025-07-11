@@ -37,10 +37,6 @@ Overview for each Target
 
 To run this project, you will need to do the following:
 
-- Add Github account in your xCode Environment with this repo token.
-`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`
-
-
 - (Some Case) sometimes your mac will deny any custom scripts to run locally, so you will need to do the following in the files scripts:
     
     1- Navigate in each file in  Configuration e.x (cd Source/Configuration/GitHooks)
@@ -59,7 +55,7 @@ Install Kit with SPM
 
 ```bash
   dependencies: [
-        .package(url: "https://github.com/yazanqaisi-/Kit.git", branch: "main")
+        .package(url: "https://github.com/YazanQ/V8-engine.git", branch: "main")
     ]
 ```
     
