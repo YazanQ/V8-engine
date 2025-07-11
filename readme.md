@@ -43,7 +43,7 @@ To run this project, you will need to do the following:
 
 - (Some Case) sometimes your mac will deny any custom scripts to run locally, so you will need to do the following in the files scripts:
     
-    1- Navigate in each file in Waveline Configuration e.x (cd Source/WavelineConfiguration/GitHooks)
+    1- Navigate in each file in  Configuration e.x (cd Source/Configuration/GitHooks)
     
     2- run the following Terminal command: `chomd u+x` this will allow the scripts to run and configure the evn in xcode (e.x: `chmod u+x install.sh)`
 
@@ -55,11 +55,11 @@ PLEASE NOTE: This framework is not only for one project, so any modification or 
 
 ### Dependencies
 
-Install WavelineKit with SPM
+Install Kit with SPM
 
 ```bash
   dependencies: [
-        .package(url: "https://github.com/yazanqaisi-waveline/WavelineKit.git", branch: "main")
+        .package(url: "https://github.com/yazanqaisi-/Kit.git", branch: "main")
     ]
 ```
     
