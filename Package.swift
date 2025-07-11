@@ -22,7 +22,9 @@ let package = Package(
         .package(url: "https://github.com/sendyhalim/Swime", from: "3.0.7"),
         .package(url: "https://github.com/evgenyneu/keychain-swift.git", from: "20.0.0"),
         .package(url: "https://github.com/hackiftekhar/IQKeyboardManager.git", from: "6.5.0"),
-        .package(url: "https://github.com/relatedcode/ProgressHUD", from: "13.6.1")
+        .package(url: "https://github.com/relatedcode/ProgressHUD", from: "13.6.1"),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "10.24.0"),
+        .package(url: "https://github.com/onevcat/Kingfisher.git", .upToNextMajor(from: "7.0.0"))
     ],
     targets: [
         .target(
@@ -49,6 +51,7 @@ let package = Package(
             ],
             exclude: [
                 "GitHooks",
+                "Firebase",
                 "SwiftFormat",
                 "SwiftLint",
                 "SwiftGen",
@@ -59,6 +62,7 @@ let package = Package(
             name: "UI",
             dependencies: [
                 .product(name: "IQKeyboardManagerSwift", package: "IQKeyboardManager"),
+                .product(name: "Kingfisher", package: "Kingfisher"),
                 "Core",
                 "ProgressHUD"
             ]
@@ -68,6 +72,11 @@ let package = Package(
             dependencies: [
                 "Core",
                 .product(name: "KeychainSwift", package: "keychain-swift"),
+                .product(name: "FirebaseAnalytics", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseCrashlytics", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseMessaging", package: "firebase-ios-sdk"),
+                .product(name: "FirebasePerformance", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseRemoteConfig", package: "firebase-ios-sdk")
             ]
         )
     ]

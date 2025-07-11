@@ -2,7 +2,7 @@
 //  Keychain.swift
 //
 //
-//  Created by Yazan Qaisi on 25/02/2024.
+//  Created by Yazan Qaisi on 28/05/2024.
 //
 
 import Foundation
@@ -10,8 +10,8 @@ import Resolver
 
 @propertyWrapper
 public struct Keychain<T: Codable> {
-    private struct Wrapper<T>: Codable where T: Codable {
-        let wrapped: T
+    private struct Wrapper<W>: Codable where W: Codable {
+        let wrapped: W
     }
 
 

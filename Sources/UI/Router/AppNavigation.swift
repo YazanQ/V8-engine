@@ -2,7 +2,7 @@
 //  AppNavigation.swift
 //
 //
-//  Created by Yazan Qaisi on 13/03/2024.
+//  Created by Yazan Qaisi on 29/05/2024.
 //
 
 import UIKit
@@ -37,8 +37,8 @@ extension AppNavigationProxy {
     ) {
         switch presentationType {
         case .push:
-            sourceViewController.navigationItem.backButtonTitle = ""
-            sourceViewController.navigationController?.viewControllers.first?.navigationItem.backButtonTitle = ""
+//            sourceViewController.navigationItem.backButtonTitle = Language.current == .english ? "Back" : "العودة"
+//             sourceViewController.navigationController?.viewControllers.first?.navigationItem.backButtonTitle =  Language.current == .english ? "Back" : "العودة"
             sourceViewController.navigationController?.pushViewController(destinationViewController, animated: animated)
 
         case .present:

@@ -2,7 +2,7 @@
 #  install.sh
 #  Alhisba
 #
-#  Created by Yazan Qaisi on 28/02/2024.
+#  Created by Yazan Qaisi on 23/05/2024.
 #
 
 #!/usr/bin/env bash

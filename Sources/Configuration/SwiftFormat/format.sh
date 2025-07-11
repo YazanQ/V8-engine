@@ -2,7 +2,7 @@
 #  format.sh
 #
 #
-#  Created by Yazan Qaisi on 28/02/2024.
+#  Created by Yazan Qaisi on 23/05/2024.
 #
 
 #!/bin/bash
@@ -23,7 +23,7 @@ fi
 
 # git diff --diff-filter=d --staged --name-only | grep -e '\.swift$' | while read FILE; do
 #     echo "Found '${FILE}'"
-#     ${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat $FILE --config $BASE_DIR/.swiftformat --exclude $EXCLUDED_FILES --quiet "${FILE}";
+#     ${PODS_ROOT}/SwiftFormat/CommandTool/swiftformat $FILE --config $BASE_DIR/.swiftformat --exclude $EXCLUDED_FILES --quiet "${FILE}";
 #     git add "$FILE"
 # done
 

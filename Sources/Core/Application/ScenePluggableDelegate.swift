@@ -2,7 +2,7 @@
 //  ScenePluggableDelegate.swift
 //
 //
-//  Created by Yazan Qaisi on 25/02/2024.
+//  Created by Yazan Qaisi on 23/05/2024.
 //
 
 import UIKit
@@ -49,6 +49,10 @@ extension ScenePluggableDelegate {
     open func sceneDidDisconnect(_ scene: UIScene) {
         pluginInstances.forEach { $0.sceneDidDisconnect() }
     }
+
+    open func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        pluginInstances.forEach { $0.scene(scene, openURLContexts: URLContexts)}
+    }
 }
 
 public protocol ScenePlugin {
@@ -65,6 +69,8 @@ public protocol ScenePlugin {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions)
 
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity)
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 }
 
 public extension ScenePlugin {
@@ -77,4 +83,6 @@ public extension ScenePlugin {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {}
 
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {}
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {}
 }

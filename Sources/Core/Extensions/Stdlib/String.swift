@@ -2,7 +2,7 @@
 //  String.swift
 //
 //
-//  Created by Yazan Qaisi on 22/02/2024.
+//  Created by Yazan Qaisi on 23/05/2024.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ public extension String {
         trimmed.isEmpty
     }
 
-    var lines: [String] {
+    var s: [String] {
         components(separatedBy: "\n")
     }
 
@@ -33,26 +33,26 @@ public extension String {
     }
 }
 
-//public extension String {
-//    var localized: String {
-//        localized()
-//    }
-//
-//    func localized(args: CVarArg..., in bundle: Bundle? = nil) -> String {
-//        let table = "Localizable"
-//        let bundle = bundle ?? .main
-//
-//        if
-//            let path = bundle.path(forResource: Language.current.rawValue, ofType: "lproj"),
-//            let bundle = Bundle(path: path)
-//        {
-//            let format = bundle.localizedString(forKey: self, value: nil, table: table)
-//            return String(format: format, arguments: args)
-//        } else {
-//            return self
-//        }
-//    }
-//}
+public extension String {
+    var localized: String {
+        localized()
+    }
+
+    func localized(args: CVarArg..., in bundle: Bundle? = nil) -> String {
+        let table = "Localizable"
+        let bundle = bundle ?? .main
+
+        if
+            let path = bundle.path(forResource: Language.current.rawValue, ofType: "lproj"),
+            let bundle = Bundle(path: path)
+        {
+            let format = bundle.localizedString(forKey: self, value: nil, table: table)
+            return String(format: format, arguments: args)
+        } else {
+            return self
+        }
+    }
+}
 
 public extension String {
     func camelCaseToSnakeCase() -> String {
@@ -78,9 +78,15 @@ public extension String {
 
 public extension String {
     func isValidEmail() -> Bool {
-        let emailValidationRegex = "^[\\p{L}0-9!#$%&'*+\\/=?^_`{|}~-][\\p{L}0-9.!#$%&'*+\\/=?^_`{|}~-]{0,63}@[\\p{L}0-9-]+(?:\\.[\\p{L}0-9-]{2,7})*$"
+        let emailValidationRegex = "[A-Z0-9a-z._%+-]*@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailValidationPredicate = NSPredicate(format: "SELF MATCHES %@", emailValidationRegex)
         return emailValidationPredicate.evaluate(with: self)
+    }
+
+    func isValidPassword() -> Bool {
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$&*()_+-=])(.{8,})$"
+        let passwordValidationPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
+        return passwordValidationPredicate.evaluate(with: self)
     }
 }
 

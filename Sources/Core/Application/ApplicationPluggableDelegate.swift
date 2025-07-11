@@ -2,7 +2,7 @@
 //  ApplicationPluggableDelegate.swift
 //
 //
-//  Created by Yazan Qaisi on 25/02/2024.
+//  Created by Yazan Qaisi on 23/05/2024.
 //
 
 import UIKit
@@ -11,7 +11,6 @@ public protocol ApplicationPlugin {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool
-
     func applicationProtectedDataWillBecomeUnavailable(_ application: UIApplication)
     func applicationProtectedDataDidBecomeAvailable(_ application: UIApplication)
 
@@ -37,6 +36,7 @@ public extension ApplicationPlugin {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {}
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {}
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {}
+
 }
 
 open class ApplicationPluggableDelegate: UIResponder, UIApplicationDelegate {
