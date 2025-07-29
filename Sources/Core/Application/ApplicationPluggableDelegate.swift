@@ -20,6 +20,8 @@ public protocol ApplicationPlugin {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any])
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error)
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool
 }
 
 public extension ApplicationPlugin {
@@ -36,7 +38,7 @@ public extension ApplicationPlugin {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {}
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {}
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {}
-
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool { true }
 }
 
 open class ApplicationPluggableDelegate: UIResponder, UIApplicationDelegate {
@@ -82,6 +84,12 @@ extension ApplicationPluggableDelegate {
         // swiftlint:disable:next reduce_boolean
         pluginInstances.reduce(false) {
             $0 || $1.application(application, continue: userActivity, restorationHandler: restorationHandler)
+        }
+    }
+
+    open func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
+        pluginInstances.reduce(true) {
+            $0 && $1.application(app, open: url, options: options)
         }
     }
 }

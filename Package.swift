@@ -12,7 +12,8 @@ let package = Package(
         .library(name: "Core", targets: ["Core"]),
         .library(name: "Configuration", targets: ["Configuration"]),
         .library(name: "Store", targets: ["Store"]),
-        .library(name: "UI", targets: ["UI"])
+        .library(name: "UI", targets: ["UI"]),
+        .library(name: "FirebaseClient", targets: ["FirebaseClient"]),
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.6.1"),
@@ -77,6 +78,21 @@ let package = Package(
                 .product(name: "FirebaseMessaging", package: "firebase-ios-sdk"),
                 .product(name: "FirebasePerformance", package: "firebase-ios-sdk"),
                 .product(name: "FirebaseRemoteConfig", package: "firebase-ios-sdk")
+            ]
+        ),
+        .target(
+            name: "FirebaseClient",
+            dependencies: [
+                "Core",
+                .product(name: "FirebaseAnalytics", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseCrashlytics", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseMessaging", package: "firebase-ios-sdk"),
+                .product(name: "FirebasePerformance", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseRemoteConfig", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+//                .product(name: "FirebaseFirestore", package: "firebase-ios-sdk"),
+//                .product(name: "FirebaseFirestoreSwift", package: "firebase-ios-sdk")
+                //.product(name: "FirebaseInAppMessaging-Beta", package: "firebase-ios-sdk")
             ]
         )
     ]

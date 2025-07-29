@@ -55,3 +55,14 @@ public extension Encodable {
         try encoder.encode(self)
     }
 }
+
+public extension Encodable {
+    func toDictionary() throws -> [String: Any] {
+        let data = try JSONEncoder().encode(self)
+        let jsonObject = try JSONSerialization.jsonObject(with: data)
+        guard let dictionary = jsonObject as? [String: Any] else {
+            throw NSError(domain: "SerializationError", code: -1, userInfo: nil)
+        }
+        return dictionary
+    }
+}

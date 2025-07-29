@@ -29,7 +29,7 @@ public class FormButton: UIButton {
 
     public override var isHighlighted: Bool {
         didSet {
-            alpha = isHighlighted ? 0.4 : 1
+            alpha = isHighlighted ? 0.7 : 1
         }
     }
 
