@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ProgressHUD
+import ObjectiveC
 
 public protocol LoaderPresentation: AnyObject {
     func showLoading()
@@ -15,10 +15,26 @@ public protocol LoaderPresentation: AnyObject {
 
 public extension LoaderPresentation where Self: UIViewController {
     func showLoading() {
-        ProgressHUD.show(interaction: false)
+        guard view.viewWithTag(999_999) == nil else { return }
+
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.color = .white
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.startAnimating()
+
+        indicator.tag = 999_999
+        view.addSubview(indicator)
+        NSLayoutConstraint.activate([
+            indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
 
     func hideLoading() {
-        ProgressHUD.dismiss()
+        view.subviews
+            .filter { $0.tag == 999_999 }
+            .forEach {
+                $0.removeFromSuperview()
+            }
     }
 }
